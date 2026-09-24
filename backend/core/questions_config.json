@@ -1,0 +1,180 @@
+{
+  "version": "0.1",
+  "description": "产品意图表单配置：前端据此动态渲染项目创建表单",
+  "autosave": {
+    "enabled": true,
+    "feature_ref": "M1-8",
+    "help": "自动保存草稿，退出后可继续填写"
+  },
+  "one_liner": {
+    "enabled": true,
+    "feature_ref": "M1-7",
+    "title": "一句话直填",
+    "field": "quick_brief",
+    "placeholder": "用一句话描述你想做的产品，其余信息在对话阶段补齐，例如：做一个面向自由职业者的记账小程序",
+    "required": true,
+    "help": "只写一句话也能提交，其余信息全部交给 AI 对话阶段补齐"
+  },
+  "sections": [
+    {
+      "id": "basic",
+      "title": "基础信息",
+      "feature_ref": "M1-1",
+      "fields": [
+        {
+          "key": "product_name",
+          "label": "产品名称",
+          "type": "text",
+          "required": true,
+          "placeholder": "例如：自由记账",
+          "rules": { "max_length": 50 }
+        },
+        {
+          "key": "brief",
+          "label": "一句话简介",
+          "type": "text",
+          "required": true,
+          "placeholder": "一句话说明这个产品是什么、给谁用",
+          "rules": { "max_length": 200 }
+        },
+        {
+          "key": "product_type",
+          "label": "产品类型",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "web", "label": "Web" },
+            { "value": "app", "label": "App" },
+            { "value": "mini_program", "label": "小程序" },
+            { "value": "admin_system", "label": "后台系统" },
+            { "value": "ai_app", "label": "AI 应用" },
+            { "value": "other", "label": "其他" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "target_users",
+      "title": "目标用户",
+      "feature_ref": "M1-2",
+      "fields": [
+        {
+          "key": "target_personas",
+          "label": "目标用户画像",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "描述典型用户的特征：年龄、职业、场景、痛点等，例如：25-35 岁自由职业者，收入不固定，缺乏系统记账习惯",
+          "help": "可以描述一类或多类典型用户"
+        },
+        {
+          "key": "user_roles",
+          "label": "使用角色",
+          "type": "tags",
+          "required": true,
+          "placeholder": "输入角色后回车，可添加多个",
+          "help": "一个产品可能有多种角色，如：普通用户、运营、管理员",
+          "rules": { "min_items": 1 }
+        }
+      ]
+    },
+    {
+      "id": "core_scenarios",
+      "title": "核心场景",
+      "feature_ref": "M1-3",
+      "fields": [
+        {
+          "key": "problems",
+          "label": "想解决的问题",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "用户现在遇到了什么麻烦？现有方案哪里不好？"
+        },
+        {
+          "key": "core_scenarios",
+          "label": "核心使用场景",
+          "type": "list",
+          "required": true,
+          "placeholder": "每条描述一个场景：谁在什么情况下想完成什么事",
+          "rules": { "min_items": 1, "max_items": 3 },
+          "help": "建议填写 1–3 条最核心的场景"
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": "范围与约束",
+      "feature_ref": "M1-4",
+      "fields": [
+        {
+          "key": "core_features",
+          "label": "计划包含的核心功能",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "列出本期一定要做的核心功能，每行一条"
+        },
+        {
+          "key": "excluded_features",
+          "label": "明确不做的功能",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "列出本期明确不做的功能，帮助 AI 守住边界",
+          "help": "选填，但强烈建议填写，避免需求膨胀"
+        },
+        {
+          "key": "platforms",
+          "label": "平台端",
+          "type": "multiselect",
+          "required": true,
+          "options": [
+            { "value": "ios", "label": "iOS" },
+            { "value": "android", "label": "Android" },
+            { "value": "web", "label": "Web" },
+            { "value": "mini_program", "label": "小程序" },
+            { "value": "server", "label": "服务端" },
+            { "value": "other", "label": "其他" }
+          ],
+          "rules": { "min_items": 1 }
+        }
+      ]
+    },
+    {
+      "id": "extra",
+      "title": "补充信息",
+      "feature_ref": "M1-5",
+      "fields": [
+        {
+          "key": "competitors",
+          "label": "竞品参考",
+          "type": "text",
+          "required": false,
+          "placeholder": "例如：随手记、MoneyWiz",
+          "help": "选填"
+        },
+        {
+          "key": "business_model",
+          "label": "商业模式",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "如何赚钱或创造价值？例如：订阅会员、广告、SaaS 收费",
+          "help": "选填"
+        },
+        {
+          "key": "milestones",
+          "label": "上线时间 / 里程碑",
+          "type": "text",
+          "required": false,
+          "placeholder": "例如：10 月内测，12 月正式上线",
+          "help": "选填"
+        },
+        {
+          "key": "tech_preference",
+          "label": "技术偏好",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "例如：前后端分离、云厂商、必须兼容的旧系统等",
+          "help": "选填"
+        }
+      ]
+    }
+  ]
+}
